@@ -44,7 +44,7 @@ with DAG(
     def task1():
         log.info("starting task 1")
 
-    hello = task1()
+    task1 = task1()
 
     @task(task_id="task2")
     def task2():
@@ -62,4 +62,4 @@ with DAG(
     ## TASKS DEFINITION ##
     ######################
 
-    hello >> [ task2, task3 ]
+    task1 >> [ task2, task3 ]
