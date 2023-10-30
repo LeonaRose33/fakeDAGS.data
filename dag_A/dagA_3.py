@@ -26,10 +26,10 @@ from airflow.example_dags.subdags.subdag import subdag
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.subdag import SubDagOperator
 
-DAG_NAME = "example_subdag_operator"
+DAG_NAME = "dagA_3"
 
 with DAG(
-    dag_id="dagA_3",
+    dag_id=DAG_NAME,
     default_args={"retries": 2},
     start_date=datetime(2022, 1, 1),
     schedule="@once",
