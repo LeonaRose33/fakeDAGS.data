@@ -31,7 +31,7 @@ DAG_NAME = "example_subdag_operator"
 with DAG(
     dag_id="dagA_3",
     default_args={"retries": 2},
-    start_date=datetime.datetime(2022, 1, 1),
+    start_date=datetime(2022, 1, 1),
     schedule="@once",
     tags=["example"],
 ) as dag:
