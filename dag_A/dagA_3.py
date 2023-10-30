@@ -8,7 +8,7 @@ from airflow.operators.subdag import SubDagOperator
 DAG_NAME = "example_subdag_operator"
 
 with DAG(
-    dag_id=DAG_NAME,
+    dag_id="dagA_3",
     default_args={"retries": 2},
     start_date=datetime.datetime(2022, 1, 1),
     schedule="@once",
