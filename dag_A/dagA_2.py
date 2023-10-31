@@ -40,26 +40,27 @@ with DAG(
     start_date=datetime(2022, 1, 1)
 ) as dag:
 
-    @task(task_id="task1")
-    def task1():
-        log.info("starting task 1")
+    def target ():
+        @task
+        def task1(dag_run=None):
+            print(dag_run.conf.get("task2"))
 
-    task1 = task1()
+        task1 = task1()
 
-    @task(task_id="task2")
-    def task2():
-        log.info("starting task 2")
+        @task(task_id="task2")
+        def task2():
+            log.info("starting task 2")
 
-    task2 = task2()
+        task2 = task2()
 
-    @task(task_id="task3")
-    def task3():
-        log.info("starting task 3")
+        @task(task_id="task3")
+        def task3():
+            log.info("starting task 3")
 
-    task3 = task3()
+        task3 = task3()
 
     ######################
     ## TASKS DEFINITION ##
     ######################
 
-    task1 >> task2 >> task3 
+    target()
