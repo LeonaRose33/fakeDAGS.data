@@ -42,20 +42,20 @@ with DAG(
 
     def target ():
         @task
-        def task1(dag_run=None):
-            print(dag_run.conf.get("task2"))
+        def task1():
+            print("task1")
 
         task1 = task1()
 
-        @task(task_id="task2")
+        @task()
         def task2():
-            log.info("starting task 2")
+            print("task2")
 
         task2 = task2()
 
-        @task(task_id="task3")
+        @task()
         def task3():
-            log.info("starting task 3")
+            print("task3")
 
         task3 = task3()
 
